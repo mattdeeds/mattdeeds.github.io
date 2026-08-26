@@ -1,0 +1,139 @@
+/* Noto Sans Mono — broad Unicode coverage (APL glyphs, etc.) */
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;700&family=Noto+Sans+Symbols+2&display=swap');
+
+/* Base — shared across all pages */
+
+body {
+  font-family: Georgia, 'Times New Roman', serif;
+  background: #fff;
+  color: #333;
+  line-height: 1.6;
+  font-size: 16px;
+  max-width: 700px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+a { color: #0000EE; }
+a:visited { color: #551A8B; }
+a:hover { color: #FF0000; }
+
+h1 { font-size: 2em; margin-bottom: 0; }
+h2 { font-size: 1.4em; margin-top: 2em; border-bottom: 1px solid #999; padding-bottom: 0.3em; }
+h3 { font-size: 1.1em; margin-top: 1.5em; border-bottom: 1px dotted #5e5e5e; padding-bottom: 0.3em; }
+
+hr { border: none; border-top: 1px solid #999; margin: 2em 0; }
+
+pre {
+  background: #f5f5f5;
+  border: 1px solid #ccc;
+  padding: 10px;
+  overflow-x: auto;
+  font-family: 'Noto Sans Mono', 'Noto Sans Symbols 2', 'Courier New', monospace;
+  font-size: 14px;
+}
+
+code {
+  font-family: 'Noto Sans Mono', 'Noto Sans Symbols 2', 'Courier New', monospace;
+  background: #f5f5f5;
+  padding: 1px 4px;
+}
+
+.header { text-align: center; padding: 5px 0; border-bottom: 2px solid #333; }
+.tagline { font-style: italic; color: #666; }
+
+nav { margin-top: 15px; }
+nav a { margin: 0 5px; }
+
+ul { margin: 1em 0; padding-left: 25px; }
+li { margin: 0.5em 0; }
+
+footer {
+  border-top: 2px solid #333;
+  padding-top: 15px;
+  margin-top: 2em;
+  text-align: center;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Tables — reference language pages */
+
+table { border-collapse: collapse; width: 100%; margin: 1em 0; }
+th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; }
+th { background: #f5f5f5; }
+
+/* Home page */
+
+.features-list { list-style: square; }
+
+.languages { margin: 1em 0; }
+.languages span {
+  display: inline-block;
+  background: #eee;
+  border: 1px solid #ccc;
+  padding: 2px 8px;
+  margin: 2px;
+  font-size: 14px;
+}
+
+.cta {
+  text-align: center;
+  padding: 20px;
+  background: #f9f9f9;
+  border: 1px solid #ccc;
+  margin: 2em 0;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 10px;
+  padding: 8px 20px;
+  background: #333;
+  color: #fff;
+  text-decoration: none;
+  font-family: Georgia, serif;
+}
+.btn:hover { background: #555; }
+.btn:visited { color: #fff; }
+
+.counter { margin-top: 10px; font-size: 12px; }
+
+/* Logo light/dark swap */
+
+.logo-dark { display: none; }
+
+/* Dark mode */
+
+@media (prefers-color-scheme: dark) {
+  body { background: #1a1a1a; color: #ddd; }
+
+  a { color: #6db3f2; }
+  a:visited { color: #b48ead; }
+  a:hover { color: #f08080; }
+
+  h2 { border-bottom-color: #555; }
+  hr { border-top-color: #555; }
+
+  pre { background: #2a2a2a; border-color: #444; }
+  code { background: #2a2a2a; }
+
+  .header { border-bottom-color: #ddd; }
+  .tagline { color: #999; }
+
+  footer { border-top-color: #ddd; color: #999; }
+
+  th, td { border-color: #444; }
+  th { background: #2a2a2a; }
+
+  .languages span { background: #2a2a2a; border-color: #444; color: #ddd; }
+
+  .cta { background: #222; border-color: #444; }
+
+  .btn { background: #ddd; color: #1a1a1a; }
+  .btn:hover { background: #bbb; }
+  .btn:visited { color: #1a1a1a; }
+
+  .logo-light { display: none; }
+  .logo-dark { display: inline; }
+}
