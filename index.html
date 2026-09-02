@@ -4,14 +4,14 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Matt Deeds · Embedded systems and low-level firmware</title>
-<meta name="description" content="Embedded systems engineer. Bare-metal firmware, RP2350, PIO peripherals, hardware bring-up, and protocol reverse engineering.">
+<meta name="description" content="Embedded systems and low-level firmware.">
 <link rel="stylesheet" href="/assets/style.css">
 </head>
 <body>
 
 <header class="header">
   <h1>Matt Deeds</h1>
-  <p class="tagline">Embedded systems and low-level firmware</p>
+  <p class="tagline">Embedded systems · Firmware · Hardware bring-up</p>
   <nav>
     <a href="/">Work</a>
     <a href="/writing/">Writing</a>
@@ -20,9 +20,8 @@
 </header>
 
 <main>
-  <p>Embedded systems · Firmware · Hardware bring-up</p>
   <h2>Having fun building my own hardware and firmware.</h2>
-  <p>Bare-metal C and Rust on microcontrollers, mostly on the RP2040 and RP2350. Interested in custom PIO peripherals, low-power designs, reverse engineering, and PCB design.</p>
+  <p>Interested in bare-metal Rust on cool microcontrollers like the RP2040 and RP2350, low-power designs, PCB design + assembly, and impractical projects.</p>
   
   <h2>Selected work</h2>
 
@@ -35,37 +34,37 @@
   <h3><a href="https://github.com/mattdeeds/pico-remote-probe">pico-remote-probe</a></h3>
   <p>A network-attached SWD debug probe on a single Pico 2 for remote flashing and debugging. The probe runs a GDB stub
   so a bare <code>gdb-multiarch</code> can flash and debug a
-  target over the network with no host-side tooling. Plus a host-free
+  target over the network. No host-side tooling required. Plus a host-free
   RTT viewer and an OpenOCD bridge for RISC-V cores.</p>
   <div class="languages"><span>Rust</span><span>no_std</span><span>PIO</span><span>smoltcp</span></div>
 
   <h3><a href="https://github.com/mattdeeds/pico-10base-t-rs">pico-10base-t-rs</a></h3>
-  <p>10BASE-T Ethernet bit-banged out of PIO and DMA. No MAC or PHY, just a
-  transceiver and magnetics. Bridged to a TCP/IP stack to make the Pico 2 W
+  <p>10BASE-T Ethernet TX and RX bit-banged out of PIO and DMA. No MAC or PHY. Just a
+  transceiver, magnetics, and software. Bridged to a TCP/IP stack to make the Pico 2 W
   into a <i>working</i> wireless router.</p>
   <div class="languages"><span>Covered by Hackaday</span><span>Rust</span><span>PIO</span><span>smoltcp</span></div>
 
   <h3><a href="https://github.com/mattdeeds/pico-llm">pico-llm</a></h3>
   <p>Transformer language model inference on bare metal with only 520 KB of RAM.
-  Weights stream off an micro SD card through double-buffered DMA on one core while
-  the other core runs quantised matrix multiplication. Tested with a custom 9M-parameter model and ported Qwen3-0.6B. Write-up in progress.</p>
-  <div class="languages"><span>C</span><span>RP2350</span><span>custom PCB</span></div>
+  The model weights are stream off a micro SD card through double-buffered DMA on one core. The other core runs quantised matrix multiplication. Tested with a custom 9M-parameter model and Qwen3 models. Write-up in progress.</p>
+  <div class="languages"><span>C</span><span>RP2350</span><span>KiCad</span></div>
 
-  <h3>Siri Remote (gen 3) protocol</h3>
-  <p>Reverse engineering the Apple Siri Remote gen 3 bluetooth protocol:
-  GATT layout, button and clickpad encoding, and the Opus voice stream. The
-  audio path has not been documented publicly before. Write-up in progress.</p>
-  <div class="languages"><span>ESP32-S3</span><span>NimBLE</span><span>Opus</span></div>
+  <h3>Siri Remote dictation dongle</h3>
+  <p>Uses the ESP32-S3 as a Bluetooth -> USB HID dongle to capture audio and button presses from the Siri Remote gen 3.
+  The audio stream is decoded on the host machine and processed by a local ASR model.
+  The output text is fed back to the dongle over USB and the dongle types the text back to the host
+  allowing the remote to be used as a custom dictation tool.</p>
+  <div class="languages"><span>ESP32-S3</span><span>BLE</span><span>Opus</span></div>
 
   <h3>Minnow E-reader</h3>
-  <p>A tiny e-reader powered by a CR2032 coin-cell. Built to magnetically attach to the back of your phone and keep you focused on a single book.
-  Instantly turns on and ready to read unlike my experience with Linux based e-readers. Battery life is measured in years.
+  <p>A tiny e-reader powered by a CR2450 coin-cell. Built to magnetically attach to the back of your phone and keep you focused on a single book.
+  Instantly turns on and is ready to read unlike my experience with Linux based e-readers.
+  Able to last years on a single coin-cell.
   </p>
   <div class="languages"><span>STM32G0</span><span>Low-power</span><span>C</span>
   
   <h3>HBCam</h3>
-  <p>A handheld monochrome camera in the spirit of the Game Boy Camera, from
-  KiCad schematic through assembly to firmware: PIO frame capture, live
+  <p>A handheld monochrome camera inspired by the Game Boy Camera. PIO for frame capture, live
   viewfinder, dithering and palettes, gallery, and USB mass storage.</p>
   <div class="languages"><span>C</span><span>RP2350B</span><span>KiCad</span></div>
 
@@ -77,7 +76,6 @@
     <a href="mailto:hello@mattdeeds.com">hello@mattdeeds.com</a>
     </p>
     <p>More of my work is on <a href="https://github.com/mattdeeds">GitHub</a>.</p>
-    <a class="btn" href="mailto:hello@mattdeeds.com">Email me</a>
   </div>
 </main>
 
