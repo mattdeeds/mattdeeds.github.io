@@ -49,7 +49,7 @@
   The model weights are stream off a micro SD card through double-buffered DMA on one core. The other core runs quantised matrix multiplication. Tested with a custom 9M-parameter model and Qwen3 models. Write-up in progress.</p>
   <div class="languages"><span>C</span><span>RP2350</span><span>KiCad</span></div>
 
-  <h3>Siri Remote dictation dongle</h3>
+  <h3><a href="https://github.com/mattdeeds/siri-remote-dictation">Siri Remote dictation dongle</a></h3>
   <p>Uses the ESP32-S3 as a Bluetooth -> USB HID dongle to capture audio and button presses from the Siri Remote gen 3.
   The audio stream is decoded on the host machine and processed by a local ASR model.
   The output text is fed back to the dongle over USB and the dongle types the text back to the host
