@@ -28,13 +28,13 @@
   <h3><a href="https://github.com/mattdeeds/pokeemerald-rp2350">pokeemerald-rp2350</a></h3>
   <p>A Game Boy Advance game ported from ARMv4T to Cortex-M33 and running
   natively on a $6 microcontroller. Not an emulator. GBA’s video hardware is
-  reimplemented in software and ouput at 60 fps to HDMI.</p>
+  reimplemented in software and output at 60 fps to HDMI.</p>
   <div class="languages"><span>Covered by Adafruit</span><span>C</span><span>RP2350</span><span>HSTX</span></div>
 
   <h3><a href="https://github.com/mattdeeds/pico-remote-probe">pico-remote-probe</a></h3>
   <p>A network-attached SWD debug probe on a single Pico 2 for remote flashing and debugging. The probe runs a GDB stub
   so a bare <code>gdb-multiarch</code> can flash and debug a
-  target over the network. No host-side tooling required. Plus a host-free
+  target over the network. No probe-specific host tooling required. Plus a host-free
   RTT viewer and an OpenOCD bridge for RISC-V cores.</p>
   <div class="languages"><span>Rust</span><span>no_std</span><span>PIO</span><span>smoltcp</span></div>
 
@@ -46,11 +46,11 @@
 
   <h3><a href="https://github.com/mattdeeds/pico-llm">pico-llm</a></h3>
   <p>Transformer language model inference on bare metal with only 520 KB of RAM.
-  The model weights are stream off a micro SD card through double-buffered DMA on one core. The other core runs quantised matrix multiplication. Tested with a custom 9M-parameter model and Qwen3 models. Write-up in progress.</p>
+  The model weights are streamed sequentially off a micro SD card. One core handles the I/O while the other does the matrix multiplication. Tested with a custom 9M-parameter model and Qwen3 models. <a href="/writing/pico-llm.html">Read the full write-up</a>.</p>
   <div class="languages"><span>C</span><span>RP2350</span><span>KiCad</span></div>
 
   <h3><a href="https://github.com/mattdeeds/siri-remote-dictation">Siri Remote dictation dongle</a></h3>
-  <p>Uses the ESP32-S3 as a Bluetooth -> USB HID dongle to capture audio and button presses from the Siri Remote gen 3.
+  <p>Uses the ESP32-S3 as a Bluetooth → USB HID dongle to capture audio and button presses from the Siri Remote gen 3.
   The audio stream is decoded on the host machine and processed by a local ASR model.
   The output text is fed back to the dongle over USB and the dongle types the text back to the host
   allowing the remote to be used as a custom dictation tool.</p>
@@ -58,10 +58,10 @@
 
   <h3>Minnow E-reader</h3>
   <p>A tiny e-reader powered by a CR2450 coin-cell. Built to magnetically attach to the back of your phone and keep you focused on a single book.
-  Instantly turns on and is ready to read unlike my experience with Linux based e-readers.
-  Able to last years on a single coin-cell.
+  Instantly turns on and is ready to read, unlike my experience with Linux-based e-readers.
+  Able to last years on a single cell.
   </p>
-  <div class="languages"><span>STM32G0</span><span>Low-power</span><span>C</span>
+  <div class="languages"><span>STM32G0</span><span>Low-power</span><span>C</span></div>
   
   <h3>HBCam</h3>
   <p>A handheld monochrome camera inspired by the Game Boy Camera. PIO for frame capture, live
@@ -84,7 +84,7 @@
     <a href="mailto:hello@mattdeeds.com">hello@mattdeeds.com</a> ·
     <a href="https://github.com/mattdeeds">github.com/mattdeeds</a>
   </p>
-<p><3</p>
+<p>&lt;3</p>
 </footer>
 
 </body>
