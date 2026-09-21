@@ -1,6 +1,14 @@
 /* Noto Sans Mono — broad Unicode coverage (APL glyphs, etc.) */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;700&family=Noto+Sans+Symbols+2&display=swap');
 
+/* Accent — copper. Change these three values to retune the whole site. */
+
+:root {
+  --accent: #b45309;
+  --accent-visited: #8a5a3c;
+  --accent-hover: #7c2d12;
+}
+
 /* Base — shared across all pages */
 
 body {
@@ -14,9 +22,9 @@ body {
   padding: 20px;
 }
 
-a { color: #0000EE; }
-a:visited { color: #551A8B; }
-a:hover { color: #FF0000; }
+a { color: var(--accent); }
+a:visited { color: var(--accent-visited); }
+a:hover { color: var(--accent-hover); }
 
 h1 { font-size: 2em; margin-bottom: 0; }
 h2 { font-size: 1.4em; margin-top: 2em; border-bottom: 1px solid #999; padding-bottom: 0.3em; }
@@ -39,7 +47,7 @@ code {
   padding: 1px 4px;
 }
 
-.header { text-align: center; padding: 5px 0; border-bottom: 2px solid #333; }
+.header { text-align: center; padding: 5px 0; border-bottom: 2px solid var(--accent); }
 .tagline { font-style: italic; color: #666; }
 
 nav { margin-top: 15px; }
@@ -49,7 +57,7 @@ ul { margin: 1em 0; padding-left: 25px; }
 li { margin: 0.5em 0; }
 
 footer {
-  border-top: 2px solid #333;
+  border-top: 2px solid var(--accent);
   padding-top: 15px;
   margin-top: 2em;
   text-align: center;
@@ -62,6 +70,7 @@ footer {
 table { border-collapse: collapse; width: 100%; margin: 1em 0; }
 th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; }
 th { background: #f5f5f5; }
+th[colspan] { text-align: center; }
 
 /* Figures — writing pages */
 
@@ -72,7 +81,7 @@ figcaption { font-size: 14px; color: #666; font-style: italic; margin-top: 0.5em
 blockquote {
   margin: 1em 0;
   padding: 0.5em 1em;
-  border-left: 3px solid #ccc;
+  border-left: 3px solid var(--accent);
   color: #555;
 }
 
@@ -125,11 +134,13 @@ blockquote {
 /* Dark mode */
 
 @media (prefers-color-scheme: dark) {
-  body { background: #1a1a1a; color: #ddd; }
+  :root {
+    --accent: #f0a860;
+    --accent-visited: #c9977a;
+    --accent-hover: #ffc890;
+  }
 
-  a { color: #6db3f2; }
-  a:visited { color: #b48ead; }
-  a:hover { color: #f08080; }
+  body { background: #1a1a1a; color: #ddd; }
 
   h2 { border-bottom-color: #555; }
   hr { border-top-color: #555; }
@@ -137,10 +148,9 @@ blockquote {
   pre { background: #2a2a2a; border-color: #444; }
   code { background: #2a2a2a; }
 
-  .header { border-bottom-color: #ddd; }
   .tagline { color: #999; }
 
-  footer { border-top-color: #ddd; color: #999; }
+  footer { color: #999; }
 
   th, td { border-color: #444; }
   th { background: #2a2a2a; }
@@ -155,7 +165,7 @@ blockquote {
 
   figure img { border-color: #444; }
   figcaption { color: #999; }
-  blockquote { border-left-color: #444; color: #aaa; }
+  blockquote { color: #aaa; }
 
   .logo-light { display: none; }
   .logo-dark { display: inline; }
