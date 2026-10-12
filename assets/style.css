@@ -1,12 +1,24 @@
 /* Noto Sans Mono — broad Unicode coverage (APL glyphs, etc.) */
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;700&family=Noto+Sans+Symbols+2&display=swap');
 
-/* Accent — copper. Change these three values to retune the whole site. */
+/* Palette — taken from the Nintendogs: Lab & Friends box art.
+   Tokens are named for their job, so a new palette only means new values here. */
 
 :root {
-  --accent: #b45309;
-  --accent-visited: #8a5a3c;
-  --accent-hover: #7c2d12;
+  /* Logo green — links, header and footer rules, blockquote bar */
+  --accent: #146b32;
+  --accent-visited: #566b4f;
+  --accent-hover: #0a4a20;
+
+  /* Honey, the wood floor — tags */
+  --accent-2: #8a5e1f;
+
+  /* Sage, the blurred backdrop — rules under headings */
+  --rule: #9ba785;
+
+  /* Cream, the puppy's coat — surface for code, table heads and boxes, and its edge */
+  --paper: #f8f4e3;
+  --paper-edge: #e1d6af;
 }
 
 /* Base — shared across all pages */
@@ -27,14 +39,14 @@ a:visited { color: var(--accent-visited); }
 a:hover { color: var(--accent-hover); }
 
 h1 { font-size: 2em; margin-bottom: 0; }
-h2 { font-size: 1.4em; margin-top: 2em; border-bottom: 1px solid #999; padding-bottom: 0.3em; }
-h3 { font-size: 1.1em; margin-top: 1.5em; border-bottom: 1px dotted #5e5e5e; padding-bottom: 0.3em; }
+h2 { font-size: 1.4em; margin-top: 2em; border-bottom: 1px solid var(--rule); padding-bottom: 0.3em; }
+h3 { font-size: 1.1em; margin-top: 1.5em; border-bottom: 1px dotted var(--rule); padding-bottom: 0.3em; }
 
-hr { border: none; border-top: 1px solid #999; margin: 2em 0; }
+hr { border: none; border-top: 1px solid var(--rule); margin: 2em 0; }
 
 pre {
-  background: #f5f5f5;
-  border: 1px solid #ccc;
+  background: var(--paper);
+  border: 1px solid var(--paper-edge);
   padding: 10px;
   overflow-x: auto;
   font-family: 'Noto Sans Mono', 'Noto Sans Symbols 2', 'Courier New', monospace;
@@ -43,11 +55,34 @@ pre {
 
 code {
   font-family: 'Noto Sans Mono', 'Noto Sans Symbols 2', 'Courier New', monospace;
-  background: #f5f5f5;
+  background: var(--paper);
   padding: 1px 4px;
 }
 
-.header { text-align: center; padding: 5px 0; border-bottom: 2px solid var(--accent); }
+.header {
+  position: relative;
+  isolation: isolate;
+  text-align: center;
+  padding: 5px 0;
+  border-bottom: 2px solid var(--accent);
+}
+
+/* Header banner — canvas added by banner.js, drawn behind the header text.
+   It reaches out through the body padding to the top and sides of the column.
+   Opacity is the overall dial. The resting plasma sits well under it (AMBIENT
+   in banner.js), which leaves room for the pointer's wake to stand out. */
+
+.header-banner {
+  position: absolute;
+  top: -20px;
+  left: -20px;
+  width: calc(100% + 40px);
+  height: calc(100% + 20px);
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
 .tagline { font-style: italic; color: #666; }
 
 nav { margin-top: 15px; }
@@ -68,14 +103,14 @@ footer {
 /* Tables — reference language pages */
 
 table { border-collapse: collapse; width: 100%; margin: 1em 0; }
-th, td { border: 1px solid #ccc; padding: 6px 10px; text-align: left; }
-th { background: #f5f5f5; }
+th, td { border: 1px solid var(--paper-edge); padding: 6px 10px; text-align: left; }
+th { background: var(--paper); }
 th[colspan] { text-align: center; }
 
 /* Figures — writing pages */
 
 figure { margin: 1.5em 0; text-align: center; }
-figure img { max-width: 100%; height: auto; border: 1px solid #ccc; }
+figure img { max-width: 100%; height: auto; border: 1px solid var(--paper-edge); }
 figcaption { font-size: 14px; color: #666; font-style: italic; margin-top: 0.5em; }
 
 blockquote {
@@ -92,8 +127,9 @@ blockquote {
 .languages { margin: 1em 0; }
 .languages span {
   display: inline-block;
-  background: #eee;
-  border: 1px solid #ccc;
+  background: color-mix(in srgb, var(--accent-2) 12%, transparent);
+  border: 1px solid color-mix(in srgb, var(--accent-2) 40%, transparent);
+  color: var(--accent-2);
   padding: 2px 8px;
   margin: 2px;
   font-size: 14px;
@@ -102,8 +138,8 @@ blockquote {
 .cta {
   text-align: center;
   padding: 20px;
-  background: #f9f9f9;
-  border: 1px solid #ccc;
+  background: var(--paper);
+  border: 1px solid var(--paper-edge);
   margin: 2em 0;
 }
 
@@ -135,35 +171,25 @@ blockquote {
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --accent: #f0a860;
-    --accent-visited: #c9977a;
-    --accent-hover: #ffc890;
+    --accent: #7cc48d;
+    --accent-visited: #a3b08c;
+    --accent-hover: #b5e6c0;
+    --accent-2: #e3b56f;
+    --rule: #5a6449;
+    --paper: #23241d;
+    --paper-edge: #424331;
   }
 
   body { background: #1a1a1a; color: #ddd; }
-
-  h2 { border-bottom-color: #555; }
-  hr { border-top-color: #555; }
-
-  pre { background: #2a2a2a; border-color: #444; }
-  code { background: #2a2a2a; }
 
   .tagline { color: #999; }
 
   footer { color: #999; }
 
-  th, td { border-color: #444; }
-  th { background: #2a2a2a; }
-
-  .languages span { background: #2a2a2a; border-color: #444; color: #ddd; }
-
-  .cta { background: #222; border-color: #444; }
-
   .btn { background: #ddd; color: #1a1a1a; }
   .btn:hover { background: #bbb; }
   .btn:visited { color: #1a1a1a; }
 
-  figure img { border-color: #444; }
   figcaption { color: #999; }
   blockquote { color: #aaa; }
 
